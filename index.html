@@ -1,0 +1,23 @@
+<script>
+Words= () => {
+    let paragraph = "Are Angels ambassadors sent from God to guide us protect us or bring messages from heaven The word angel comes from the Greek word “angelos” which means messenger The Bible says that God has appointed many angels to those who love God and call to Him Psalms  For He shall give His angels charge over you To keep you in all your ways The bible refers to different types of angels with varying duties such as ugides protectors messengers and angels of the Lord or as Cherubim Seraphim or Archangels and not to be worshipped for they are creatures Col RevThe meanings of angels, their appearance and purposes vary throughout history and the world Artists  have given us their visions of angels as winged creatures usually beautiful figures that are glowing shining floating in human form or as a voice. Saints as well as everyday people tell about being visited by or helped by angels";
+    paragraph = paragraph.replace(/[, . ]/g, ' ');
+    paragraph=paragraph.toLowerCase();
+    const wordFrequency = paragraph.split(" ");
+    const wordCount = {};
+   const words=paragraph.match(/(\w+)/g).length;
+   console.log(words);
+    wordFrequency.forEach((item) => {
+      if (wordCount[item] == null) wordCount[item] = 1;
+      else {
+        wordCount[item] += 1;
+      }
+      if (item === '') wordCount[item] = 0;
+    });
+    let Frequency = Object.entries(wordCount).sort(function (a, b) { return b[0] - a[0] });
+  
+    const Obj = Object.fromEntries(Frequency);
+    return Obj;
+  }
+  console.log(Words());
+</script>
